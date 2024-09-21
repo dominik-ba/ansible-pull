@@ -1,0 +1,36 @@
+# - name: system setup | cron | install cron package
+#   tags: packages,cron
+#   package:
+#     name:
+#       - "{{ cron_package }}"
+#     state: latest
+
+- name: create ansible user
+  user:
+    name: ansible
+    system: yes
+
+- name: copy sudoers_ansible
+  copy:
+    src: files/sudoers_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440
+
+- name: system setup | cron | schedule automatic ansible provisioning
+  tags: cron
+  cron:
+    name: "ansible provision"
+    user: ansible
+    hour: "{{ ansible_cron_hour | default('*') }}"
+    minute: "{{ ansible_cron_minute | default('*/30') }}"
+    job: "ansible-pull -U https://github.com/dominik-ba/ansible-pull.git"
+
+- name: system setup | cron | schedule ansible cleanup at boot
+  tags: cron
+  cron:
+    name: "ansible refresh at boot"
+    user: ansible
+    special_time: reboot
+    job: "/bin/rm -rf /home/ansible/.ansible"
