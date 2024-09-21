@@ -13,12 +13,12 @@
 #     state: started
 #     enabled: yes
 
-- name: install cowsay
+- name: Ensure dependencies are installed (Debian).
   ansible.builtin.apt:
     name:
       - cowsay
     state: present
   when: ansible_facts.os_family == "Debian"
 
-- name: fasdfasd
-  ansible.builtin.command: "/usr/games/cowsay 'hello'"
+- name: Ensure Pi-hole is running.
+  ansible.builtin.command: /usr/games/cowsay "hello"
