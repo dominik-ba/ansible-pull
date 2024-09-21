@@ -6,7 +6,6 @@
   roles:
     - role: base
       # ansible_pull_url: https://github.com/dominik-ba/ansible-pull.git
-
 # - hosts: workstation
 #   tags: workstation
 #   become: true
@@ -19,4 +18,4 @@
 #   roles:
 #     - ansible-pull
 
-- import_playbook: playbook.yml
+# - import_playbook: playbook.yml
