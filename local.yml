@@ -5,7 +5,7 @@
   # become: true
   roles:
     - role: base
-      ansible_pull_url: https://github.com/dominik-ba/ansible-pull.git
+      # ansible_pull_url: https://github.com/dominik-ba/ansible-pull.git
 
 # - hosts: workstation
 #   tags: workstation
