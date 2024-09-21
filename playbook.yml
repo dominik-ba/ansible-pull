@@ -1,4 +1,4 @@
-- hosts: mygroup
+- hosts: mygroup-play
   tags: base
   become: true
   tasks:

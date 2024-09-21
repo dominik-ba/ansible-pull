@@ -5,3 +5,6 @@ workstation
 [asn]
 yyy.mydomain.com
 dasd.mydomain.com
+
+[onlyfoo]
+workstation
