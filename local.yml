@@ -30,19 +30,19 @@
   tags: base
   become: true
   roles:
-    - base
+    - ansible-pull
 
 - hosts: workstation
   tags: workstation
   become: true
   roles:
-    - workstation
+    - ansible-pull
 
 - hosts: server
   tags: server
   become: true
   roles:
-    - server
+    - ansible-pull
 
 # end of run cleanup and reporting
 - hosts: all
