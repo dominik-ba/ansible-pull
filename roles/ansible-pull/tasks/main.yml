@@ -1,17 +1,17 @@
 ---
-- name: install units for ansible-pull
-  template:
-    dest: /etc/systemd/system
-    src: "{{ item }}"
-  loop:
-    - ansible-pull.service
-    - ansible-pull.timer
+# - name: install units for ansible-pull
+#   template:
+#     dest: /etc/systemd/system
+#     src: "{{ item }}"
+#   loop:
+#     - ansible-pull.service
+#     - ansible-pull.timer
 
-- name: enable ansible-pull timer
-  service:
-    name: ansible-pull.timer
-    state: started
-    enabled: yes
+# - name: enable ansible-pull timer
+#   service:
+#     name: ansible-pull.timer
+#     state: started
+#     enabled: yes
 
 - name: install cowsay
   ansible.builtin.apt:
@@ -20,5 +20,5 @@
     state: present
   when: ansible_facts.os_family == "Debian"
 
-- name: cowsay
+- name: fasdfasd
   ansible.builtin.command: "/usr/games/cowsay 'hello'"
