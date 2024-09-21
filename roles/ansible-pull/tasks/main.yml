@@ -21,4 +21,4 @@
   when: ansible_facts.os_family == "Debian"
 
 - name: Ensure Pi-hole is running.
-  ansible.builtin.command: cowsay "hello"
+  ansible.builtin.command: /usr/games/cowsay "hello"
