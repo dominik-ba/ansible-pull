@@ -24,23 +24,23 @@
 #       when: ansible_distribution in ["Debian", "Ubuntu"]
 
 # run roles
-- hosts: all
-  tags: base
-  become: true
-  roles:
-    - ansible-pull
+# - hosts: all
+#   tags: base
+#   become: true
+#   roles:
+#     - ansible-pull
 
-- hosts: workstation
-  tags: workstation
-  become: true
-  roles:
-    - ansible-pull
+# - hosts: workstation
+#   tags: workstation
+#   become: true
+#   roles:
+#     - ansible-pull
 
-- hosts: server
-  tags: server
-  become: true
-  roles:
-    - ansible-pull
+# - hosts: server
+#   tags: server
+#   become: true
+#   roles:
+#     - ansible-pull
 
 # # end of run cleanup and reporting
 # - hosts: all
