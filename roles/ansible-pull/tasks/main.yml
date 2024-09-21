@@ -23,3 +23,7 @@
 - name: cowsay
   command: "/usr/games/cowsay 'hello'"
   register: cowsay
+
+- name: cowsay out
+  debug:
+    var: cowsay
