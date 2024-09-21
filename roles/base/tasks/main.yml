@@ -25,7 +25,7 @@
     user: ansible
     hour: "{{ ansible_cron_hour | default('*') }}"
     minute: "{{ ansible_cron_minute | default('*/30') }}"
-    job: "ansible-pull -U https://github.com/dominik-ba/ansible-pull.git"
+    job: "ansible-pull -o -U https://github.com/dominik-ba/ansible-pull.git"
 
 - name: system setup | cron | schedule ansible cleanup at boot
   tags: cron
