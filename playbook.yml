@@ -1,4 +1,5 @@
-- hosts: desktop
+- name: desktop demo debug msg
+  hosts: desktop
   tasks:
     - debug:
         msg: "I'm in group 'desktop'"

@@ -1,5 +1,6 @@
 # run roles
-- hosts: all
+- name: setup ansible pull
+  hosts: all
   tags: base
   become: true
   roles:
