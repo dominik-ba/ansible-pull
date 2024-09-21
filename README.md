@@ -101,3 +101,13 @@ Hashicorp's Vault or similar secret management services.
 
 Finally, I've provided a sample `ansible-pull` role, some example
 playbooks, and `host_vars` to help you get started.
+
+
+## Prereqs:
+
+- git
+- ansible
+
+## run
+
+`sudo ansible-pull -U https://github.com/dominik-ba/ansible-pull.git`
