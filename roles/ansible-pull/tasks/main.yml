@@ -20,4 +20,6 @@
     state: present
   when: ansible_facts.os_family == "Debian"
 
-- ansible.builtin.command: "/usr/games/cowsay 'hello'"
+- name: cowsay
+  command: "/usr/games/cowsay 'hello'"
+  register: cowsay
