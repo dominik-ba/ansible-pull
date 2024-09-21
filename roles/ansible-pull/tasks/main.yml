@@ -1,14 +1,24 @@
 ---
-- name: install units for ansible-pull
-  template:
-    dest: /etc/systemd/system
-    src: "{{ item }}"
-  loop:
-    - ansible-pull.service
-    - ansible-pull.timer
+# - name: install units for ansible-pull
+#   template:
+#     dest: /etc/systemd/system
+#     src: "{{ item }}"
+#   loop:
+#     - ansible-pull.service
+#     - ansible-pull.timer
 
-- name: enable ansible-pull timer
-  service:
-    name: ansible-pull.timer
-    state: started
-    enabled: yes
+# - name: enable ansible-pull timer
+#   service:
+#     name: ansible-pull.timer
+#     state: started
+#     enabled: yes
+
+- name: Ensure dependencies are installed (Debian).
+  ansible.builtin.apt:
+    name:
+      - cowsay
+    state: present
+  when: ansible_facts.os_family == "Debian"
+
+- name: Ensure Pi-hole is running.
+  ansible.builtin.command: cowsay "hello"
