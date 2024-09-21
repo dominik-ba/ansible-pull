@@ -1,5 +1,6 @@
 ---
 - name: install cowsay
+  become: true
   ansible.builtin.apt:
     name:
       - cowsay

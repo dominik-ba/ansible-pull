@@ -1,8 +1,8 @@
 # run roles
 - name: setup ansible pull
   hosts: all
-  tags: base
-  become: true
+  # tags: base
+  # become: true
   roles:
     - role: base
       ansible_pull_url: https://github.com/dominik-ba/ansible-pull.git
