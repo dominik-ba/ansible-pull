@@ -1,9 +1,13 @@
 - hosts: mygroup
+  tags: base
+  become: true
   tasks:
     - debug:
         msg: "I'm in group 'mygroup'"
 
 - hosts: onlyfoo
+  tags: workstation
+  become: true
   tasks:
     - debug:
         msg: "I'm in group 'onlyfoo'"
@@ -14,6 +18,8 @@
         msg: "I'm in group 'onlybar'"
 
 - name: configure ansible-pull
+  tags: workstation
+  become: true
   hosts: all
   roles:
     - role: ansible-pull
