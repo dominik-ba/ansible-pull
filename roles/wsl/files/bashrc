@@ -1,0 +1,36 @@
+### yubikey gpg and ssh #######################################################
+export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
+  config_path="C:/Users/domin/AppData/Local/gnupg"
+  wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+  rm -f "$SSH_AUTH_SOCK"
+  if test -x "$wsl2_ssh_pageant_bin"; then
+    (setsid nohup socat UNIX-LISTEN:"$SSH_AUTH_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin -gpgConfigBasepath '${config_path}'" >/dev/null 2>&1 &)
+  else
+    echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+  fi
+  unset wsl2_ssh_pageant_bin
+  unset config_path
+fi
+
+export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
+if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
+  config_path="C:/Users/domin/AppData/Local/gnupg"
+  wsl2_ssh_pageant_bin="$HOME/.ssh/wsl2-ssh-pageant.exe"
+  rm -rf "$GPG_AGENT_SOCK"
+  if test -x "$wsl2_ssh_pageant_bin"; then
+    (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin -gpgConfigBasepath '${config_path}' --gpg S.gpg-agent" >/dev/null 2>&1 &)
+  else
+    echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
+  fi
+  unset wsl2_ssh_pageant_bin
+  unset config_path
+fi
+
+
+## kubernetes #######################################################################################
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+source <(kubectl completion bash)
+
+# python path
+export PATH="$PATH:~/.local/bin"
