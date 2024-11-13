@@ -6,3 +6,6 @@ workstation
 
 [something]
 workstation
+
+[headless]
+usbserver
