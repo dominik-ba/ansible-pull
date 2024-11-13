@@ -4,6 +4,12 @@
     - debug:
         msg: "I'm in group 'desktop'"
 
+- name: headless demo debug msg
+  hosts: headless
+  tasks:
+    - debug:
+        msg: "I'm in group 'headless'"
+
 - name: cowsay - demo
   hosts: all
   roles:
