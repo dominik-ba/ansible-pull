@@ -6,7 +6,7 @@ my ansible pull repo
 
 ```
 # pull mode (suitable for automation)
-sudo ansible-pull -o -U https://github.com/dominik-ba/ansible-pull.git
+sudo ansible-pull -o -U https://github.com/dominik-ba/ansible-pull.git -C main
 
 # push mode (development)
 $ ansible-playbook -i inventory ./playbook.yml --limit foo.example.com
