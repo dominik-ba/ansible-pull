@@ -11,6 +11,7 @@
     system: yes
 
 - name: copy sudoers_ansible
+  become: true
   copy:
     src: files/sudoers_ansible
     dest: /etc/sudoers.d/ansible
@@ -19,6 +20,7 @@
     mode: 0440
 
 - name: system setup | cron | schedule automatic ansible provisioning
+  become: true
   tags: cron
   cron:
     name: "ansible provision"
@@ -28,6 +30,7 @@
     job: "ansible-pull -o -U https://github.com/dominik-ba/ansible-pull.git"
 
 - name: system setup | cron | schedule ansible cleanup at boot
+  become: true
   tags: cron
   cron:
     name: "ansible refresh at boot"
