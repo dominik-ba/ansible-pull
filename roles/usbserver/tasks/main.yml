@@ -3,11 +3,12 @@
   ansible.builtin.get_url:
     url: https://www.virtualhere.com/sites/default/files/usbserver/vhusbdarm
     dest: /usr/bin/vhusbdarm
-    mode: "550"
+    mode: "555"
+    group: ansible
 
 - name: add usbdaemon start in rc.local
   become: true
   ansible.builtin.lineinfile:
-    path: /etc/services
+    path: /etc/rc.local
     insertbefore: "^exit"
     line: "/usr/bin/vhusbdarm -b &"
