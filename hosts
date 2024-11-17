@@ -9,3 +9,6 @@ workstation
 
 [headless]
 usbserver
+
+[usbhost]
+usbserver

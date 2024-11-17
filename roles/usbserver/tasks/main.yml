@@ -1,0 +1,13 @@
+- name: Download vhusbd to usr bin
+  become: true
+  ansible.builtin.get_url:
+    url: https://www.virtualhere.com/sites/default/files/usbserver/vhusbdarm
+    dest: /usr/bin/vhusbdarm
+    mode: "550"
+
+- name: add usbdaemon start in rc.local
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/services
+    insertbefore: "^exit"
+    line: "/usr/bin/vhusbdarm -b &"
