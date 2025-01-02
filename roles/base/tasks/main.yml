@@ -1,10 +1,3 @@
-# - name: system setup | cron | install cron package
-#   tags: packages,cron
-#   package:
-#     name:
-#       - "{{ cron_package }}"
-#     state: latest
-
 - name: create ansible user
   user:
     name: ansible

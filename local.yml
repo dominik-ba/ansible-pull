@@ -1,21 +1,9 @@
 # run roles
 - name: setup ansible pull
   hosts: all
-  # tags: base
-  # become: true
+
   roles:
     - role: base
       # ansible_pull_url: https://github.com/dominik-ba/ansible-pull.git
-# - hosts: workstation
-#   tags: workstation
-#   become: true
-#   roles:
-#     - ansible-pull
-
-# - hosts: server
-#   tags: server
-#   become: true
-#   roles:
-#     - ansible-pull
 
 - import_playbook: playbook.yml
